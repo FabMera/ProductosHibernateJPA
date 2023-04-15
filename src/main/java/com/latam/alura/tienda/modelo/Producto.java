@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.lang.Long;
 import java.math.BigDecimal;
-
+import java.time.LocalDate;
 @Entity
 @Table(name="productos")
 
@@ -15,6 +15,10 @@ public class Producto {
     private String nombre;
     private String descripcion;
     private BigDecimal precio;
+    @Column(name="fechacreacion")
+    private final LocalDate fechaCreacion = LocalDate.now();
+    /*@ManyToOne
+    private Categoria categoria;*/
 
 
     public String getNombre() {
@@ -27,6 +31,7 @@ public class Producto {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
+
     }
 
     public void setNombre(String nombre) {
@@ -56,6 +61,11 @@ public class Producto {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
+    }
+
 
     @Override
     public String toString() {

@@ -20,6 +20,7 @@ public class ProductosCrear {
             producto.setNombre(nombre);
             producto.setDescripcion(descripcion);
             producto.setPrecio(BigDecimal.valueOf(precio));
+            producto.getFechaCreacion();
             em.persist(producto);
             em.getTransaction().commit();
             System.out.println("Producto creado con exito con el id: " + producto.getId());
