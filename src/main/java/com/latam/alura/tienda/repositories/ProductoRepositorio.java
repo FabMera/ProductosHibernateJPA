@@ -6,7 +6,7 @@ import jakarta.persistence.EntityManager;
 import java.util.List;
 
 public class ProductoRepositorio implements CrudRepository<Producto> {
-    //Inyeccion de dependencias
+    //Creamos un objeto de tipo EntityManager
     private final EntityManager em;
 
     //Constructor
@@ -15,6 +15,7 @@ public class ProductoRepositorio implements CrudRepository<Producto> {
     }
 
     //Listar todos los productos
+    //METODOS ABSTRACTOS DE LA INTERFAZ CRUDREPOSITORY
     @Override
     public List<Producto> listar() {
         return em.createQuery("select p from Producto p", Producto.class).getResultList();
